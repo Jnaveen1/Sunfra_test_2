@@ -41,31 +41,38 @@ function Login() {
 
   return (
   <div className="login-container">
-    <div className="background-shapes"></div>
+    <div className="background-shapes">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
 
     <form className="form-container" onSubmit={handleLogin}>
       <h2 className="heading">Welcome Back 👋</h2>
       <p className="subtitle">Sign in to continue</p>
 
-      <input
-        type="email"
-        placeholder="Email Address"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
+      <div className="input-group">
+        <input
+          type="email"
+          placeholder="Email Address"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </div>
 
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
+      <div className="input-group">
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+      </div>
 
       <button type="submit">Login</button>
 
       <p className="signup-text">
-        New user?{" "}
-        <Link to="/signin">Create Account</Link>
+        New user? <Link to="/signin">Create Account</Link>
       </p>
     </form>
   </div>

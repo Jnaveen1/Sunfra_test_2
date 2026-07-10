@@ -155,6 +155,28 @@ def ask_question():
             "answer": str(e)
         }),500
 
+@app.route("/get-users" , methods = ['GET'])
+def get_users():
+    print("called get-users fun")
+    conn = sqlite3.connect(DATABASE) 
+    cursor = conn.cursor() 
+    cursor.execute(
+        """
+        SELECT * FROM users ;
+        """
+    )
+    users = cursor.fetchall() 
+
+    if users :
+        print(users) 
+    conn.close()
+    print(users)
+    return jsonify({
+        "status":True,
+        "message":users
+        })
+
+
 if __name__ == "__main__":
 
     app.run(
